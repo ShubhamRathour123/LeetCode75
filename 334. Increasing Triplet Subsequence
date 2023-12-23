@@ -3,19 +3,20 @@ class Solution
     public boolean increasingTriplet(int[] nums) 
     {
         int n=nums.length;
-        int i=Integer.MAX_VALUE;
-        int j=Integer.MAX_VALUE;
-        for(int in=0;in<n;in++)
+        if(n<3)return false;
+        int first=Integer.MAX_VALUE;
+        int second=Integer.MAX_VALUE;
+        for(int x: nums)    
         {
-            if(nums[in]<=i)
+            if(x<first)
             {
-                i=nums[in];
+                first=x;
             }
-            else if(nums[in]<=j)
+            else if(first<x && x<second)
             {
-                j=nums[in];
+                second=x;
             }
-            else
+            else if(second<x)
             {
                 return true;
             }
