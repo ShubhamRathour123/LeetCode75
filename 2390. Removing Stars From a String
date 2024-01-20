@@ -1,0 +1,31 @@
+class Solution 
+{
+    public String removeStars(String s) 
+    {
+        int n=s.length();
+        Stack<Character> st=new Stack<>();
+        for(int i=0;i<n;i++)    
+        {
+            if(s.charAt(i)=='*')
+            {
+                st.pop();
+            }
+            else
+            {
+                st.push(s.charAt(i));
+            }
+        }
+        String rev="";
+        for(int i=st.size();i>0;i--)
+        {
+            rev+=st.pop();
+        }
+        String ans="";
+        int k=rev.length();
+        for(int i=0;i<rev.length();i++)
+        {
+            ans+=rev.charAt(k-i-1);
+        }
+        return ans;
+    }
+}
