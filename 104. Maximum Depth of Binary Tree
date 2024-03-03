@@ -1,0 +1,17 @@
+class Solution 
+{
+    public int maxDepth(TreeNode root) 
+    {
+        return depth(root);
+    }
+    int depth(TreeNode root)
+    {
+        while(root!=null)
+        {
+            int a=1+depth(root.left);
+            int b=1+depth(root.right);
+            return Math.max(a,b);
+        }
+        return 0;
+    }
+}
