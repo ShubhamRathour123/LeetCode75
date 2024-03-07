@@ -1,0 +1,17 @@
+class Solution 
+{
+    int maxPath=0;
+    public int longestZigZag(TreeNode root) 
+    {
+        solve(root,0,0);
+        return maxPath;
+    }
+    void solve(TreeNode root,int left,int right)
+    {
+        if(root==null)return;
+        int temp=Math.max(right,left);
+        maxPath=Math.max(maxPath,temp);
+        solve(root.left,right+1,0);
+        solve(root.right,0,left+1);
+    }
+}
