@@ -1,0 +1,20 @@
+class Solution 
+{
+    TreeNode BST(TreeNode root, int val)
+    {
+        if(root==null)return root;
+        if(root.val==val)return root;
+        if(root.val>val)
+        {
+           return BST(root.left,val);
+        }
+        else
+        {
+            return BST(root.right,val);
+        }
+    }
+    public TreeNode searchBST(TreeNode root, int val) 
+    {
+        return BST(root,val);
+    }
+}
